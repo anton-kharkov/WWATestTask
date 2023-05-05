@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "555395105191",
+    "project_id": "wwa-test-task",
+    "storage_bucket": "wwa-test-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555395105191:android:cc8882bd62166be36fb682",
+        "android_client_info": {
+          "package_name": "ua.anton.wwatesttask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555395105191-1mgcqt8c1d215h4s0vm53605f7gum7rh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ua.anton.wwatesttask",
+            "certificate_hash": "d59224f700e93697496933a7ca214088c1b71231"
+          }
+        },
+        {
+          "client_id": "555395105191-uh5v95afo97fk5bp12gjetgl9dobvkiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAVYNzG6seGq_5Xw2Uzk91sC5LUVn12Fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555395105191-uh5v95afo97fk5bp12gjetgl9dobvkiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
