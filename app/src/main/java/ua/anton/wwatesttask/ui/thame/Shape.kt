@@ -8,3 +8,9 @@ val Shapes = androidx.compose.material.Shapes(
     medium = RoundedCornerShape(4.dp),
     large = RoundedCornerShape(0.dp)
 )
+
+object Padding {
+    val small = 4.dp
+    val medium = 6.dp
+    val large = 16.dp
+}

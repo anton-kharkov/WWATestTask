@@ -9,31 +9,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import dagger.hilt.android.AndroidEntryPoint
 import ua.anton.wwatesttask.R
 import ua.anton.wwatesttask.game.GameActivity
 import ua.anton.wwatesttask.main.MainActivity
+import ua.anton.wwatesttask.splash.component.SplashScreen
 import ua.anton.wwatesttask.ui.thame.WWATestTaskTheme
 
 @SuppressLint("CustomSplashScreen")
@@ -41,10 +25,6 @@ import ua.anton.wwatesttask.ui.thame.WWATestTaskTheme
 class SplashActivity : ComponentActivity() {
 
     private val splashViewModel: SplashViewModel by viewModels()
-
-    private val animationTween = 1000
-    private val initialLogoValue = 1f
-    private val targetLogoValue = 0.8f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +35,7 @@ class SplashActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ActivityUi(initialLogoValue, targetLogoValue, animationTween)
+                    SplashScreen()
                 }
             }
         }
@@ -97,40 +77,5 @@ class SplashActivity : ComponentActivity() {
         return networkCapabilities != null &&
                 (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
                         || networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
-    }
-}
-
-@Composable
-private fun ActivityUi(
-    initialLogoValue: Float,
-    targetLogoValue: Float,
-    animationTween: Int
-) {
-    val infiniteTransition = rememberInfiniteTransition()
-    val animatedScale by infiniteTransition.animateFloat(
-        initialValue = initialLogoValue,
-        targetValue = targetLogoValue,
-        animationSpec = infiniteRepeatable(
-            animation = tween(animationTween, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse
-        )
-    )
-
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(
-            painter = painterResource(R.drawable.ic_logo),
-            contentDescription = "",
-            modifier = Modifier
-                .width(400.dp)
-                .height(400.dp)
-                .graphicsLayer {
-                    scaleX = animatedScale
-                    scaleY = animatedScale
-                }
-        )
     }
 }
