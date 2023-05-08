@@ -16,6 +16,7 @@ fun GameScreen(
     modifier: Modifier,
     gameLogic: GameLogic,
     gridTile: List<IntArray>,
+    onNewGame: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -24,7 +25,7 @@ fun GameScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        TopControlPanel(score, bestScore, modifier)
+        TopControlPanel(score, bestScore, modifier, onNewGame)
         Spacer(modifier = Modifier.height(40.dp))
         GameBoard(gridTile, gameLogic::swipe)
     }

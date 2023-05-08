@@ -3,15 +3,21 @@ package ua.anton.wwatesttask.game
 import android.content.Context
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.updateAndGet
+import kotlinx.coroutines.launch
 import ua.anton.wwatesttask.game.model.GameLogic
 import ua.anton.wwatesttask.game.repository.GameRepository
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class GameViewModel @Inject constructor(
@@ -46,14 +52,23 @@ class GameViewModel @Inject constructor(
 
     val grid = mutableStateOf(gameLogic.grid)
 
-//    init {
-//        viewModelScope.launch {
-//            flow {
-//                while (true) {
-//                    emit(Unit)
-//                    delay(1.seconds)
-//                }
-//            }
-//        }
-//    }
+    init {
+        viewModelScope.launch {
+            flow {
+                while (true) {
+                    emit(Unit)
+                    delay(1.seconds)
+                }
+            }
+                .map { gameRepository.paused }
+        }
+    }
+
+    fun newGame() {
+        with(gameRepository) {
+            score = _score.updateAndGet { 0 }
+            boardState = emptyList()
+        }
+        gameLogic.restart()
+    }
 }

@@ -32,7 +32,8 @@ class GameActivity : ComponentActivity() {
                         highScore,
                         Modifier.padding(it),
                         gameViewModel.gameLogic,
-                        grid
+                        grid,
+                        gameViewModel::newGame
                     )
                 }
             }

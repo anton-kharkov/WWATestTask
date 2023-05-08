@@ -16,6 +16,13 @@ class GameLogic(
         onScoreChange(score)
     }
 
+    fun restart() {
+        score = 0
+        _grid.clear()
+        repeat(size) { _grid.add(IntArray(size) { 0 }) }
+        repeat(size / 2) { _grid.addTile() }
+    }
+
     private fun slide(row: IntArray): IntArray {
         val arr = row.filter { it > 0 }.toMutableList()
         val missing = List(grid.size - arr.size) { 0 }

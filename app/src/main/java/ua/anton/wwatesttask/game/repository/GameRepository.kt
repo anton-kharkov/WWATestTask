@@ -36,9 +36,17 @@ class GameRepository(context: Context) {
             field = value
         }
 
+    var paused: Boolean = true
+        get() = sharedPreferences.getBoolean(PREFERENCE_PAUSED, true)
+        set(value) {
+            sharedPreferences.edit().putBoolean(PREFERENCE_PAUSED, value).apply()
+            field = value
+        }
+
     companion object {
         private const val PREFERENCE_BOARD_STATE = "boardState"
         private const val PREFERENCE_SCORE = "score"
         private const val PREFERENCE_HIGH_SCORE = "highScore"
+        private const val PREFERENCE_PAUSED = "paused"
     }
 }
