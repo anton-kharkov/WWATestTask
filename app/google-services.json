@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "555395105191",
+    "firebase_url": "https://wwa-test-task-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "wwa-test-task",
     "storage_bucket": "wwa-test-task.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:555395105191:android:cc8882bd62166be36fb682",
+        "mobilesdk_app_id": "1:555395105191:android:b03beadb05da65196fb682",
         "android_client_info": {
           "package_name": "ua.anton.wwatesttask"
         }

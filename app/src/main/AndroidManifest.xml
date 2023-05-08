@@ -19,6 +19,18 @@
 
         <activity
             android:name=".main.MainActivity"
+            android:exported="false"
+            android:label="@string/title_site"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".game.GameActivity"
+            android:exported="false"
+            android:label="@string/title_game"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".splash.SplashActivity"
             android:exported="true"
             android:label="@string/title_main"
             android:screenOrientation="portrait">
@@ -27,13 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".site.SiteActivity"
-            android:exported="false"
-            android:label="@string/title_site"
-            android:screenOrientation="unspecified" />
-
     </application>
 
 

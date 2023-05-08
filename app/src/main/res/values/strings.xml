@@ -2,7 +2,7 @@
     <string name="app_name">WWATestTask</string>
     <string name="title_main">MainActivity</string>
     <string name="title_site">SiteActivity</string>
-    <string name="loading">Loading</string>
+    <string name="title_game">GameActivity</string>
     <string name="no_internet_connection">No Internet Connection</string>
     <string name="message_requires_internet_connection">This app requires an internet connection to function properly.</string>
     <string name="close_app">Close App</string>
