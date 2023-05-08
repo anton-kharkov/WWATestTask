@@ -25,6 +25,7 @@ fun GameScreen(
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         TopControlPanel(score, bestScore, modifier)
+        Spacer(modifier = Modifier.height(40.dp))
         GameBoard(gridTile, gameLogic::swipe)
     }
 }

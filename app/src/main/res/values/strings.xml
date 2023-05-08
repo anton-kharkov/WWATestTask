@@ -9,6 +9,4 @@
     <string name="game_name">2048</string>
     <string name="score">SCORE</string>
     <string name="best_score">BEST SCORE</string>
-    <string name="new_game">NEW GAME</string>
-    <string name="return_move">RETURN MOVE</string>
 </resources>

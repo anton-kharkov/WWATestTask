@@ -59,11 +59,16 @@ class SplashActivity : ComponentActivity() {
                 if (it) {
                     splashViewModel.connectToFirebaseDatabase().observe(this) { url ->
                         val intent = Intent(this, MainActivity::class.java)
+                        intent.flags =
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         intent.putExtra("url_key", url)
                         startActivity(intent)
                     }
                 } else {
-                    startActivity(Intent(this, GameActivity::class.java))
+                    val intent = Intent(this, GameActivity::class.java)
+                    intent.flags =
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
                 }
             }
         }
